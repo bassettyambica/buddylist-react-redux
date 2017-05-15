@@ -1,0 +1,36 @@
+.cancelBuddy {
+    float: right;
+    width: 10%
+}
+.buddyName{
+    width: 70%;
+    float: left
+}
+.buddyListHeader{
+    font-style: italic;
+    font-weight: normal;
+    color: blue;
+    font-family: Verdana, Geneva, sans-serif;
+}
+.userStatus {
+    float: right;
+}
+.panel{
+    width: 100%;
+
+}
+.panel-body{
+    margin-top: 20px;
+}
+.green{
+    color: green;
+}
+.grey{
+    color: grey;
+}
+.yellow{
+    color: yellow;
+}
+.red{
+    color: red;
+}
