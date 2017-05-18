@@ -155,7 +155,7 @@ class Header extends Component {
              return (
                  <div className="searchBuddySection">
                      <FormGroup>
-                         <FormControl id="searchInput" type="text" placeholder="Search by buddy name" />
+                         <FormControl id="searchInput" type="text" placeholder="Search by firstname or lastname " />
                          <Button onClick={this.filterBuddyList} type="submit">Search</Button>
                      </FormGroup>
                      {' '}

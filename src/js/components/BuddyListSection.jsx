@@ -14,6 +14,7 @@ class BuddyListSection extends Component {
         super(props);
         this.handleRemoveBuddy =  this.handleRemoveBuddy.bind(this);
         this.handleExpandBuddy =  this.handleExpandBuddy.bind(this);
+        this.filterBuddyList = this.filterBuddyList.bind(this);
     }
 
     handleRemoveBuddy(evt) {
@@ -35,8 +36,23 @@ class BuddyListSection extends Component {
             default: return "grey"
         }
     }
+
+    filterBuddyList(){
+        let updatedList = [];
+        let filterText = this.props.filterName;
+        updatedList = this.props.buddyList.filter(function(item,index){
+            return ((item.buddyItem.firstName.toLowerCase().search(
+                filterText.toLowerCase()) !== -1) || (item.buddyItem.lastName.toLowerCase().search(
+                    filterText.toLowerCase())!== -1)) ;
+            });
+        return updatedList;
+    }
     render() {
         let status;
+        let finalBuddyList = this.props.buddyList || [];
+        if(this.props.filterName){
+            finalBuddyList = this.filterBuddyList();
+        }
         return (
             <div>
                  <Table striped  condensed hover>
@@ -46,7 +62,7 @@ class BuddyListSection extends Component {
                      </tr>
                    </thead>
                       <tbody>
-                            {this.props.buddyList.map((entry,index) => {
+                            {finalBuddyList.map((entry,index) => {
                                 {status="glyphicon glyphicon-user small userStatus "+this.findStatusIcon(entry.status); }
                                 return (
                                         <tr key={index} id={index}>
